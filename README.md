@@ -1,88 +1,64 @@
-#Construcción y Aseguramiento de una Red con una DMZ
+# Construcción y aseguramiento de una red DMZ
 
- Descripción
+**Laboratorio de ciberseguridad | Cisco Packet Tracer | 4Geeks Academy**
 
-Este laboratorio tuvo como objetivo implementar una **Zona Desmilitarizada (DMZ)** utilizando Cisco Packet Tracer. Durante la práctica se configuró una topología de red con tres segmentos (LAN, DMZ y Red Externa), aplicando mecanismos de seguridad como **NAT estático** y **Listas de Control de Acceso (ACL)** para controlar el tráfico entre las diferentes redes.
+## Descripción del proyecto
 
-El objetivo principal fue publicar un servidor web ubicado en la DMZ, permitiendo el acceso desde la red externa sin comprometer la seguridad de la red interna.
+Diseño e implementación de una red segmentada mediante una zona desmilitarizada (DMZ) utilizando Cisco Packet Tracer. El laboratorio consistió en configurar una infraestructura con tres segmentos de red: LAN interna, DMZ y red externa, aplicando controles de seguridad para proteger los recursos internos.
 
- Objetivos
+Se implementaron mecanismos de NAT estático y listas de control de acceso (ACL) para publicar un servidor web en la DMZ, permitiendo el acceso desde la red externa y restringiendo las comunicaciones no autorizadas hacia la LAN.
 
-- Configurar el direccionamiento IP de todos los dispositivos.
-- Implementar una arquitectura de red con una DMZ.
+## Objetivos
+
+- Diseñar y configurar una topología de red segmentada.
+- Implementar direccionamiento IPv4 y conectividad entre dispositivos.
 - Configurar NAT estático para publicar un servidor web.
-- Aplicar ACL para controlar y restringir el tráfico entre las distintas redes.
-- Validar el funcionamiento mediante pruebas de conectividad y acceso.
+- Aplicar ACL para controlar el tráfico entre redes.
+- Validar la configuración mediante pruebas de conectividad y acceso HTTP.
 
-Topología de la red
+## Arquitectura de red
 
-La red está compuesta por tres segmentos:
+| Segmento | Red |
+|---|---|
+| LAN interna | 192.168.1.0/24 |
+| DMZ | 192.168.2.0/24 |
+| Red externa | 192.168.3.0/24 |
 
-- **LAN (Red Interna):192.168.1.0/24
-- **DMZ (Zona Desmilitarizada): 192.168.2.0/24
-- **Red Externa (Internet): 192.168.3.0/24
+**Equipamiento simulado:** router Cisco ISR 2911, tres switches Cisco Catalyst 2960, estaciones de trabajo internas y externas y servidor web ubicado en la DMZ.
 
- Dispositivos utilizados
+## Configuración realizada
 
-- Router Cisco ISR 2911 (Router_FW)
-- 3 Switches Cisco Catalyst 2960
-- PC_Internal
-- Server-PT Web_DMZ
-- PC_External
+Se configuraron las interfaces de red, el direccionamiento IPv4, NAT estático y reglas ACL para permitir el acceso HTTP al servidor publicado y restringir las comunicaciones desde la DMZ hacia la red interna.
 
- Configuración realizada
+También se habilitaron los servicios HTTP y HTTPS del servidor para realizar las pruebas correspondientes.
 
-Durante el laboratorio se llevaron a cabo las siguientes configuraciones:
+## Resultados
 
-- Asignación de direcciones IP a todos los dispositivos.
-- Configuración de las interfaces del router.
-- Implementación de NAT estático para publicar el servidor web.
-- Activación de los servicios HTTP y HTTPS en el servidor de la DMZ.
-- Creación y aplicación de ACL para:
-  - Permitir únicamente el acceso HTTP desde la red externa.
-  - Bloquear el acceso desde la DMZ hacia la red interna.
-- Verificación del funcionamiento mediante pruebas de conectividad y acceso web.
+Las pruebas documentadas permitieron verificar:
 
+- Conectividad de los equipos con sus puertas de enlace.
+- Acceso al servidor web desde la LAN interna.
+- Acceso HTTP al servidor desde la red externa mediante NAT.
+- Bloqueo del tráfico ICMP desde la red externa hacia la interfaz pública.
+- Restricción de las conexiones iniciadas desde la DMZ hacia la LAN.
 
- Resultados obtenidos
+**Resultado del laboratorio: 9/9 puntos**, según la evaluación registrada en el proyecto.
 
-Se verificó correctamente que:
+## Herramientas y tecnologías
 
-- Los equipos alcanzan sus respectivos gateways.
-- El servidor web es accesible desde la red interna.
-- El servidor web es accesible desde la red externa mediante NAT.
-- El tráfico ICMP desde Internet hacia la interfaz pública está bloqueado.
-- La comunicación iniciada desde la DMZ hacia la LAN está bloqueada.
-- El laboratorio fue completado satisfactoriamente con una puntuación de **9/9**.
+Cisco Packet Tracer · Cisco IOS · IPv4 · NAT estático · ACL · Segmentación de redes · HTTP/HTTPS
 
+## Archivos y evidencias
 
-## Contenido del repositorio
+- [Abrir laboratorio de Packet Tracer](DMZ_PROJECT.pka)
+- [Consultar informe técnico](informe/Informe_DMZ_Laboratorio.md.pdf)
+- [Prueba de acceso HTTP externo](evidencias/pexternal-http.png)
+- [Prueba de conectividad externa](evidencias/pings-external.png)
+- [Prueba de conectividad con el servidor](evidencias/pings_server.png)
+- [Evidencia del equipo interno](evidencias/pc-internal%20.png)
 
-```
-.
-├── DMZ_PROJECT.pka
-├── README.md
-├── informe/
-│   └── Informe_DMZ_Laboratorio.md
-└── evidencias/
-    ├── pings-external.png
-    ├── pings_server.png
-    ├── pc-internal.png
-    ├── pexternal-http.png
-  
+## Contexto
 
- Tecnologías utilizadas
+Laboratorio académico desarrollado durante la formación en ciberseguridad de 4Geeks Academy, orientado a la implementación de controles de seguridad perimetral y segmentación de redes.
 
-- Cisco Packet Tracer
-- Cisco IOS
-- Direccionamiento IPv4
-- NAT Estático
-- Listas de Control de Acceso (ACL)
-
-
-
-Autor
-
-uan Alonso
-
-Bootcamp de Ciberseguridad – 4Geeks Academy
+**Autor:** Juan Alonso
